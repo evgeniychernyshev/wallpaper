@@ -11,8 +11,8 @@ def calculate_rolls_count(roll_l, roll_w, room_l, room_w, ceiling_h):
     rest = canvas_count % canvas_in_roll
     if rest > 0:
         return canvas_count // canvas_in_roll + 1
-    else:
-        return rolls_count_total
+
+    return rolls_count_total
 
 
 # считаем периметр комнаты
@@ -34,8 +34,8 @@ def calculate_canvas_count(perimeter, roll_w):
     rest = perimeter % roll_w
     if rest > 0:
         return perimeter // roll_w + 1  # округляем количество полотнищ в большую сторону
-    else:
-        return count
+
+    return count
 
 
 # считаем кол-во полотнищ в 1 рулоне
