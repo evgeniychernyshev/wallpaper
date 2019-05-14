@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wallpaper</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <br/>
+            <h1>Wallpaper</h1>
+                <form action="{{ url_for('calc') }}" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="RollLength">Roll length, m:</label>
+                            <input type="text" class="form-control" id="RollLength" name="roll_length" value="{{ roll_length }}" placeholder="Enter value..." required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="RollWidth">Roll width, m:</label>
+                            <input type="text" class="form-control" id="RollWidth" name="roll_width" value="{{ roll_width }}" placeholder="Enter value..." required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form group col-md-4">
+                            <label for="RoomLength">Room length, m:</label>
+                            <input type="text" class="form-control" id="RoomLength" name="room_length" value="{{ room_length }}" placeholder="Enter value..." required>
+                        </div>
+                        <div class="form group col-md-4">
+                            <label for="RoomWidth">Room width, m:</label>
+                            <input type="text" class="form-control" id="RoomWidth" name="room_width" value="{{ room_width }}" placeholder="Enter value..." required>
+                        </div>
+                        <div class="form group col-md-4">
+                            <label for="CeilingHeight">Ceiling height, m:</label>
+                            <input type="text" class="form-control" id="CeilingHeight" name="ceiling_height" value="{{ ceiling_height }}" placeholder="Enter value..." required>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <button class="btn btn-primary">Calculate</button>
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-primary">Clear</a>
+                    </div>
+                    {% if rolls_count %}
+                    <div class="mt-2">
+                        <label for="RollsCount">Wallpaper rolls you need:</label>
+                        <input type="text" class="form-control" id="RollsCount" name="rolls_count" value="{{ rolls_count }}" readonly>
+                    </div>
+                    {% endif %}
+                </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
