@@ -1,5 +1,5 @@
-from lib import calculate_rolls_count
-from flask import Flask, render_template, url_for, request
+from app.lib import calculate_rolls_count
+from flask import Flask, render_template, request
 
 
 def main():
