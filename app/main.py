@@ -1,8 +1,12 @@
+import os
+
+import waitress
+
 from app.lib import calculate_rolls_count
 from flask import Flask, render_template, request
 
 
-def main():
+def start():
     app = Flask(__name__)
 
     @app.route('/')
@@ -25,8 +29,11 @@ def main():
                                room_width=room_width,
                                ceiling_height=ceiling_height)
 
-    app.run(port=9878, debug=True)
+    if os.getenv('APP_ENV') == 'PROD' and os.getenv('PORT'):
+        waitress.serve(app, port=os.getenv('PORT'))
+    else:
+        app.run(port=9878, debug=True)
 
 
 if __name__ == '__main__':
-    main()
+    start()
